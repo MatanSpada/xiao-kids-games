@@ -1,13 +1,12 @@
 const int BUZZER_PIN = 10;
 
 void setup() {
-  pinMode(BUZZER_PIN, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(BUZZER_PIN, HIGH);
-  delay(1000);
+  tone(BUZZER_PIN, 2000);
+  delay(500);
 
-  digitalWrite(BUZZER_PIN, LOW);
-  delay(1000);
+  noTone(BUZZER_PIN);
+  delay(500);
 }
