@@ -37,6 +37,16 @@ jobs:
             --output-dir build \
             simon_game
 
+      - name: Create UF2 firmware
+        run: |
+          curl -L https://raw.githubusercontent.com/microsoft/uf2/master/utils/uf2conv.py -o uf2conv.py
+          python3 uf2conv.py \
+            -c \
+            -b 0x2000 \
+            -f 0x68ED2B88 \
+            -o build/simon_game.ino.uf2 \
+            build/simon_game.ino.bin
+
       - name: List build output
         run: |
           ls -lah build
